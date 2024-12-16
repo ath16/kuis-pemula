@@ -5,6 +5,11 @@ import json
 import firebase_admin
 from firebase_admin import credentials, firestore
 
+st.set_page_config(
+    page_title="Kuis Pemula", 
+    page_icon="https://www.unud.ac.id/upload/images/logo%20unud%20%282%29%281%29.png"
+)
+
 # Load dari Firestore Database
 firebase_credentials = dict(st.secrets["firebase"])
 
@@ -80,12 +85,6 @@ if cookie_config and user_credentials:
         cookie_config['key'],
         cookie_config['expiry_days']
     )
-
-
-st.set_page_config(
-    page_title="Kuis Pemula", 
-    page_icon="https://www.unud.ac.id/upload/images/logo%20unud%20%282%29%281%29.png"
-)
 
 
 # Login and Main Page
