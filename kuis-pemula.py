@@ -246,7 +246,7 @@ def quiz_page():
             st.error("Tidak dapat memuat soal. Silakan coba lagi nanti.")
             return
             
-        st.session_state.quiz_data = random.sample(list(quiz_data.values()), min(len(quiz_data), 5))
+        st.session_state.quiz_data = random.sample(list(quiz_data.values()), min(len(quiz_data), 10))
         st.session_state.current_index = 0
         st.session_state.score = 0
         st.session_state.selected_option = None
@@ -324,7 +324,7 @@ def next_question():
     
 def restart_quiz():
     quiz_data = load_questions()
-    st.session_state.quiz_data = random.sample(list(quiz_data.values()), min(len(quiz_data), 5))
+    st.session_state.quiz_data = random.sample(list(quiz_data.values()), min(len(quiz_data), 10))
     st.session_state.current_index = 0
     st.session_state.score = 0
     st.session_state.selected_option = None
