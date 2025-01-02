@@ -317,11 +317,13 @@ def submit_answer():
     else:
         st.warning("Tolong pilih jawaban.")
         
+# Fungsi lanjutkan pertanyaan
 def next_question():
     st.session_state.current_index += 1
     st.session_state.selected_option = None
     st.session_state.answer_submitted = False
     
+# Fungsi restart quiz
 def restart_quiz():
     quiz_data = load_questions()
     st.session_state.quiz_data = random.sample(list(quiz_data.values()), min(len(quiz_data), 10))
@@ -330,6 +332,7 @@ def restart_quiz():
     st.session_state.selected_option = None
     st.session_state.answer_submitted = False
     
+# Fungsi update skor
 def update_user_score(score):
     try:
         user_id = st.session_state["username"]
