@@ -11,11 +11,5 @@ __pycache__/
 # Streamlit configuration and credentials
 .streamlit/
 
-# Files and folders for storing keys or sensitive information
-key/
-
-# Folder for questions (adjust as needed)
+# Folder question
 question/
-
-# Test folder (adjust as needed)
-test/
