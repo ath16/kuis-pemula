@@ -317,8 +317,6 @@ def submit_answer():
             st.session_state.score += 10
             
         st.rerun()
-    else:
-        st.warning("Tolong pilih jawaban.")
         
 # Fungsi lanjutkan pertanyaan
 def next_question():
