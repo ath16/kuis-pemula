@@ -298,11 +298,14 @@ def quiz_page():
         else:
             st.write(f"Quiz completed! Your score is: {st.session_state.score} / {len(st.session_state.quiz_data) * 10}")
             
-            update_user_score(st.session_state.score)
+            if not st.session_state.get('score_updated', False):
+                update_user_score(st.session_state.score)
+                st.session_state.score_updated = True
             
             if st.button("Selesai"):
                 st.session_state.page = "auth"
                 restart_quiz()
+                st.session_state.score_updated = False
                 st.rerun()
 
 # Fungsi submit jawaban
@@ -331,6 +334,7 @@ def restart_quiz():
     st.session_state.score = 0
     st.session_state.selected_option = None
     st.session_state.answer_submitted = False
+    st.session_state.score_updated = False
     
 # Fungsi update skor
 def update_user_score(score):
@@ -348,7 +352,7 @@ def update_user_score(score):
             current_score = user_data.to_dict().get("score", 0)
             new_score = current_score + score
             user_ref.update({"score": new_score})
-            st.success(f"Skor berhasil diperbarui!")
+            st.success(f"Skor berhasil diperbarui! Skor Anda sekarang adalah {new_score}.")
         else:
             st.error("Data pengguna tidak ditemukan.")
     

@@ -2,6 +2,9 @@
 venv/
 .env/
 
+# macOS system file
+.DS_Store
+
 # Python bytecode
 __pycache__/
 
